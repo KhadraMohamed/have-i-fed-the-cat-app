@@ -1,10 +1,8 @@
-const { DataTypes } = require("sequelize/types")
-
-module.exports = (sequelize , Datatypes) => {
+module.exports = (sequelize , DataTypes) => {
    const schema =  {
-       name: Datatypes.STRING,
-       breed: Datatypes.STRING,
-       markings: Datatypes.STRING,
+       name: DataTypes.STRING,
+       breed: DataTypes.STRING,
+       markings: DataTypes.STRING,
        lastFed: DataTypes.DATE,
    }
    return sequelize.define('Cat', schema)

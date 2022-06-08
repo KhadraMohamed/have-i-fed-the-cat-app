@@ -1,14 +1,20 @@
 const express = require('express');
+const { Cat } = require('./models');
 
 const app = express();
 
 app.use(express.json());
 
 app.post('/cats', (req, res) => {
-    res.status(201).json(req.body)
+    Cat.create(req.body).then(cat => 
+    res.status(201).json(cat))
 })
 app.get('/cats' , (req, res) => {
-    res.send('HELLO KITTY CAT')
+    Cat.findAll(req.body).then(cat =>
+    res.status(201).json(cat))
+})
+app.get('/cats/:catId', (req, res) => {
+    Cat.findByPk(req.params.catId)
 })
 
 
