@@ -16,6 +16,10 @@ app.get('/cats' , (req, res) => {
 app.get('/cats/:catId', (req, res) => {
     Cat.findByPk(req.params.catId)
 })
+app.patch('/cats/:catId', (req, res) => {
+    Cat.update(req.body, { where: { id: req.params.catId }})
+    
+})
 
 
 module.exports = app;
