@@ -17,8 +17,10 @@ app.get('/cats/:catId', (req, res) => {
     Cat.findByPk(req.params.catId)
 })
 app.patch('/cats/:catId', (req, res) => {
-    Cat.update(req.body, { where: { id: req.params.catId }})
-    
+    Cat.update(req.body, { where: { id: req.params.catId } })
+})
+app.delete('/cats/:catId', (req, res) => {
+    Cat.destroy({ where: { id: ID_TO_DELETE } })
 })
 
 
